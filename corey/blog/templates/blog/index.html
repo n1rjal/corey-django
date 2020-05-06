@@ -1,0 +1,43 @@
+{%extends "blog/base.html"%}
+{%block content%}
+{%load static%}    
+    {%if messsages%}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{messages}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {%endif%}
+
+    <div class="container p-2"> 
+        {%if posts%}   
+            {%for post in posts%}
+            <div class="container border-2 m-2">
+                <div class="d-flex p-2">
+                    <p>
+                        <h3>{{post.title}}</h3>
+                    </p>
+                    
+                    
+                </div>
+                <div class="d-flex flex-direcion-row">
+                    <div class="container p-3">
+                        {{post.content}}
+                        <div class="container pl-9 color-blue">
+                            - By {{post.author}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        
+        {%endif%}
+
+        {%if not posts%}
+            <p>Please make blog using <a href="/blog/blogwrite">Blog Writer</a> </p>
+        {%endif%}
+
+    </div>
+    
+{%endblock%}

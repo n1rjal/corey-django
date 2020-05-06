@@ -1,0 +1,9 @@
+{%extends "blog/base.html"%}
+{%block content%}
+
+{%for user in users%}
+    <h3>{{user.username}}</h3>
+    <p>EMAIL : {{user.email}}</p>
+{%endfor%}
+
+{%endblock%}

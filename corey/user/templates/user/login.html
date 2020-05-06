@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{%load crispy_forms_tags%}
+{%block content%}
+
+{%if messsages%}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{messages}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{%endif%}
+
+<div class="container pt-6 text-align-center">
+    <div>
+        <form action=# method="POST">
+            <legend>Login now</legend>
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" class="button-primary" value="Log In">
+        </form>
+        <small class="text-muted">
+            Need an account <a href="{%url 'REGISTER-USER'%}">Sign up</a>
+        </small>
+    </div>
+</div>
+
+{%endblock%}
